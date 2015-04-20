@@ -12,5 +12,6 @@ The idea for this project originated from work that was done as a part of an MSc
 
 ## Building and running tests
 
+This project is built using maven.
 
 ## Contributing
