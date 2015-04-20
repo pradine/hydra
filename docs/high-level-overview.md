@@ -8,7 +8,7 @@ The transformer is an application in it's own right that takes the WS-BPEL proce
 
 The second phase is the *transformation* phase where the code for the application is generated. Most of the required code will already be provided by the libraries, documented below, so that no actual code generation is necessary in this phases, except in certain scenarios e.g. implementing message correlations. So this phase consists mainly of configuring existing classes and linking them together based on the original WS-BPEL process description.
 
-The final phase is the *packaging* phase. In this phase we gather all of the artifacts that were produced in the previous phase and package them as an application suitable for deployment. By default, this packaging step will produce an Enterprise Application Archive (EAR) to contain the WS-BPEL application. 
+The final phase is the *packaging* phase. In this phase we gather all of the artifacts that were produced in the previous phase and package them as an application suitable for deployment. By default, this packaging step will produce a Web Application Archive (WAR) to contain the WS-BPEL application. 
 
 ## Libraries
 
