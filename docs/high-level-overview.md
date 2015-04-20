@@ -32,7 +32,7 @@ This component provides support for persistent timers needed to support the busi
 
 ### XML Processing
 
-Due to a lack of suitable open-source XSLT 2.0 processors, all XML processing is delegated to an underlying processor via an adaptor. This is to allow alternative processors to be plugged in more easily should the situation change in future. By default, Hydra uses an adaptor for the [Saxon HE processor](http://www.saxonica.com/welcome/welcome.xml).
+The WS-BPEL 2.0 specification only requires support for XPath 1.0 and XSLT 1.0, however, it does allow for additional XML processing standards such as XPath 2.0, XSLT 2.0, etc., to be supported as well, and this is something that we will aim to do in this project. However, due to a lack of suitable XML schema-aware open-source XSLT 2.0 processors, all XML processing is delegated to an underlying processor via an adaptor. This is to allow alternative processors to be plugged in more easily should the situation change in future. By default, this project uses an adaptor for the [Saxon HE processor](http://www.saxonica.com/welcome/welcome.xml).
 
 There are also the binding libraries that provide web services support:
 
