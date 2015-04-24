@@ -2,14 +2,44 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.github</groupId>
+  <groupId>com.github.pradine.hydra</groupId>
   <artifactId>hydra</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Hydra</name>
   <url>https://github.com/pradine/hydra</url>
+  
+  <developers>
+    <developer>
+      <id>pradine</id>
+      <name>Brian DePradine</name>
+      <email>depradine@googlemail.com</email>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/London</timezone>
+      <properties>
+      </properties>
+    </developer>
+  </developers>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
+  <scm>
+    <connection>scm:git:https://github.com/pradine/hydra.git</connection>
+    <developerConnection>scm:git:git@github.com:pradine/hydra.git</developerConnection>
+    <url>https://github.com/pradine/hydra</url>
+    <tag>HEAD</tag>
+  </scm>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -30,18 +60,35 @@
     </pluginManagement>
   </build>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+      	<groupId>net.sf.saxon</groupId>
+      	<artifactId>Saxon-HE</artifactId>
+      	<version>9.6.0-5</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.spullara.cli-parser</groupId>
+	    <artifactId>cli-parser</artifactId>
+	    <version>1.1.2</version>
+      </dependency> 
+    </dependencies>
+  </dependencyManagement>
+  
   <modules>
   	<module>bpel20-lib</module>
   	<module>bpel20-transformer</module>
   	<module>soap-binding-lib</module>
   	<module>docs</module>
   </modules>
+  <issueManagement>
+  	<url>https://github.com/pradine/hydra/issues</url>
+  	<system>GitHub Issues</system>
+  </issueManagement>
 </project>
