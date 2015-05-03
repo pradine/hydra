@@ -1,6 +1,8 @@
 # Hydra
 
-The aim of this project is to take a WS-BPEL process description, along with any required WSDLs and XSDs, and convert it into an application that can be deployed an run, just like any other application. Hydra is not an engine that stores and manages a set of BPEL process descriptions. Instead it is a combination of an application, and a library, that together allow you to take those process descriptions and transform them into separate stand-alone applications. With these applications you can deploy them to your favourite application server, or even deploy them to the cloud.
+[![Build Status](https://travis-ci.org/pradine/hydra.svg?branch=master)](https://travis-ci.org/pradine/hydra)
+
+The aim of this project is to take a WS-BPEL 2.0 process description, along with any required WSDLs and XSDs, and convert it into a bespoke process engine application, that implements support only for that single process. From this description it should be clear that Hydra is not a generic process engine that stores and manages many different BPEL processes, like many other process engines available today. Instead, it is a combination of a transformer application, and a library, that together allow you to take a process description and transform it into an application that you can manage and deploy, just like any other application you may have. With this applications you can, for example, deploy and run it on your favourite application server, or even deploy it to the cloud.
 
 ## Background
 
