@@ -15,11 +15,12 @@ import com.github.pradine.hydra.Phase;
  * phase; an XSLT file to perform the pre-processing; an XSLT file to perform the transformation; and
  * the location of a project directory that will store the output from each of the sub-phases. The
  * source directory, mentioned previously, is also stored below the project directory. The main outputs
- * of this phase are a Spring beans.xml file describing the Java objects used by the application, these
- * objects are based on classes provided by the Hydra library; and the original source directory,
+ * of this phase are a Spring beans.xml file describing the Java instances used by the application, these
+ * instances are based on classes provided by the Hydra runtime library; and the original source directory,
  * including all of it's contents. Also included in the output may be XML files required to generate
- * new classes that are not provided by the Hydra library, but only if these additional classes are
- * needed to fully support the BPEL process.
+ * new classes that are not provided by the Hydra runtime library, but only if these additional classes
+ * are needed to fully support the BPEL process. Finally, there will be a persistence XML file to list
+ * any JPA classes used by the application, including any newly generated classes, if any.
  * 
  * @see Setup
  */

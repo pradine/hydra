@@ -29,7 +29,8 @@ public class CommandLineArgs {
         /**
          * Do not perform any validation. This can be useful if you have already validated the
          * BPEL process description using a different tool, or if you simply want to regenerate
-         * the application without making any changes to the BPEL process description.
+         * the application without making any changes to the BPEL process description, having
+         * validated it initially.
          */
         NONE
     };
