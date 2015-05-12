@@ -48,13 +48,23 @@
     <pluginManagement>
       <plugins>
         <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.3</version>
           <configuration>
             <source>1.7</source>
             <target>1.7</target>
           </configuration>
+        </plugin>
+        <plugin>
+      	  <groupId>org.codehaus.mojo</groupId>
+      	  <artifactId>xml-maven-plugin</artifactId>
+      	  <version>1.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.7</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -96,4 +106,9 @@
   	<url>https://github.com/pradine/hydra/issues</url>
   	<system>GitHub Issues</system>
   </issueManagement>
+  <ciManagement>
+  	<system>Travis CI</system>
+  	<url>https://travis-ci.org/pradine/hydra</url>
+  </ciManagement>
+  <description>A bespoke process engine generator for WS-BPEL 2.0.</description>
 </project>
