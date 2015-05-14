@@ -5,11 +5,11 @@ import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
@@ -21,7 +21,6 @@ import net.sf.saxon.s9api.XsltTransformer;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.w3c.dom.Document;
 
 public class SchematronTest {
     private static final String STATIC_ANALYSIS_XSL =
@@ -39,43 +38,19 @@ public class SchematronTest {
 
     @Test
     public void testValidSA00006() throws Exception {
-        XsltTransformer transformer = executable.load();
-        String testFile   = "sa00006/valid.bpel";
-        String resultFile = "sa00006/validResult.xml";
-        InputStream testIs   = this.getClass().getResourceAsStream(testFile);        
-        InputStream resultIs = this.getClass().getResourceAsStream(resultFile);        
-        
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document resultDoc = db.parse(resultIs, resultFile);
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Serializer serializer = executable.getProcessor().newSerializer(baos);
-        Source source = new StreamSource(testIs);
-        source.setSystemId(testFile);
-        transformer.setSource(source);
-        transformer.setDestination(serializer);
-        transformer.transform();
-        
-        db.reset();
-        
-        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-        Document output = db.parse(bais);
-        assertXMLEqual(resultDoc, output);
+        evaluate("sa00006/valid.bpel", "sa00006/validResult.xml");
     }
 
     @Test
     public void testInvalidSA00006() throws Exception {
+        evaluate("sa00006/invalid.bpel", "sa00006/invalidResult.xml");
+    }
+
+    private void evaluate(String testFile, String resultFile) throws Exception {
         XsltTransformer transformer = executable.load();
-        String testFile   = "sa00006/invalid.bpel";
-        String resultFile = "sa00006/invalidResult.xml";
         InputStream testIs   = this.getClass().getResourceAsStream(testFile);        
         InputStream resultIs = this.getClass().getResourceAsStream(resultFile);        
-        
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document resultDoc = db.parse(resultIs, resultFile);
-        
+        Reader resultReader = new InputStreamReader(resultIs);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Serializer serializer = executable.getProcessor().newSerializer(baos);
         Source source = new StreamSource(testIs);
@@ -83,12 +58,9 @@ public class SchematronTest {
         transformer.setSource(source);
         transformer.setDestination(serializer);
         transformer.transform();
-        
-        db.reset();
-        
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-        Document output = db.parse(bais);
-        assertXMLEqual(resultDoc, output);
+        Reader output = new InputStreamReader(bais);
+        
+        assertXMLEqual(resultReader, output);        
     }
-
 }

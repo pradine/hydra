@@ -96,8 +96,8 @@
       <dependency>
       	<groupId>xmlunit</groupId>
       	<artifactId>xmlunit</artifactId>
-      	<scope>test</scope>
       	<version>1.6</version>
+      	<scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
