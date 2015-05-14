@@ -1,0 +1,6 @@
+ <process name="purchaseOrderProcess"
+          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+   <faultHandlers>
+      <rethrow />
+   </faultHandlers>
+ </process>

@@ -1,0 +1,16 @@
+ <process name="purchaseOrderProcess"
+          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+   <faultHandlers>
+      <catch faultName="lns:cannotCompleteOrder"
+         faultVariable="POFault"
+         faultMessageType="lns:orderFaultType">
+         <rethrow />
+      </catch>
+      <catchAll>
+        <sequence>
+          <compensate />
+          <rethrow />
+        </sequence>
+     </catchAll>
+   </faultHandlers>
+ </process>

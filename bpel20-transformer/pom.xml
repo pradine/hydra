@@ -6,7 +6,6 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>bpel20-transformer</artifactId>
-  <packaging>jar</packaging>
   <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
@@ -24,6 +23,11 @@
   		<groupId>org.apache.maven</groupId>
   		<artifactId>maven-embedder</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>xmlunit</groupId>
+  		<artifactId>xmlunit</artifactId>
+  		<scope>test</scope>
+  	</dependency>
   </dependencies>
 
 	<build>
@@ -37,7 +41,7 @@
 			<resource>
 				<directory>${project.build.directory}/generated-resources</directory>
 				<includes>
-				  <include>com/github/pradine/hydra/xsl/*</include>
+				  <include>com/github/pradine/hydra/xsl/static-analysis.xsl</include>
 				</includes>
 			</resource>
 		</resources>
@@ -56,10 +60,9 @@
 					<transformationSets>
 						<transformationSet>
 							<dir>src/main/resources/com/github/pradine/hydra/schematron</dir>
-							<excludes>
-								<exclude>sa*/*</exclude>
-								<exclude>tools/*</exclude>
-							</excludes>
+							<includes>
+							  <include>static-analysis.sch</include>
+							</includes>
 							<stylesheet>src/main/resources/com/github/pradine/hydra/schematron/tools/iso_dsdl_include.xsl</stylesheet>
 							<outputDir>${project.build.directory}/generated-resources/com/github/pradine/hydra/schematron</outputDir>
 							<parameters>
@@ -89,6 +92,12 @@
 							<dir>${project.build.directory}/generated-resources/com/github/pradine/hydra/schematron</dir>
 							<stylesheet>src/main/resources/com/github/pradine/hydra/schematron/tools/iso_svrl_for_xslt2.xsl</stylesheet>
 							<outputDir>${project.build.directory}/generated-resources/com/github/pradine/hydra/xsl</outputDir>
+							<parameters>
+								<parameter>
+									<name>terminate</name>
+									<value>false</value>
+								</parameter>
+							</parameters>
 							<fileMappers>
 								<fileMapper
 									implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">

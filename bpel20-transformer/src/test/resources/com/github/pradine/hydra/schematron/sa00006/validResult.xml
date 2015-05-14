@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+                        title=""
+                        schemaVersion=""><!--   
+		   
+		   
+		 -->
+   <svrl:ns-prefix-in-attribute-values uri="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+                                       prefix="bpel"/>
+   <svrl:active-pattern document="sa00006/valid.bpel" id="all" name="all"/>
+   <svrl:fired-rule context="bpel:rethrow"/>
+   <svrl:fired-rule context="bpel:rethrow"/>
+</svrl:schematron-output>

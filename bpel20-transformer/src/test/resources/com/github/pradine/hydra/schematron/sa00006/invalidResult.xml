@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+                        title=""
+                        schemaVersion=""><!--   
+		   
+		   
+		 -->
+   <svrl:ns-prefix-in-attribute-values uri="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+                                       prefix="bpel"/>
+   <svrl:active-pattern document="sa00006/invalid.bpel" id="all" name="all"/>
+   <svrl:fired-rule context="bpel:rethrow"/>
+   <svrl:failed-assert test="ancestor::bpel:catch|ancestor::bpel:catchAll"
+                       location="/*:process[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]/*:faultHandlers[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]/*:rethrow[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]">
+      <svrl:text>
+			SA00006: The &lt;rethrow&gt; activity MUST
+			only be used within a
+			faultHandler (i.e. &lt;catch&gt; and
+			&lt;catchAll&gt; elements).
+		</svrl:text>
+   </svrl:failed-assert>
+</svrl:schematron-output>
