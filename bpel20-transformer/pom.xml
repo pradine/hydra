@@ -32,9 +32,9 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/resources/com/github/pradine/hydra/schematron</directory>
+				<directory>src/main/resources</directory>
 				<excludes>
-					<exclude>**/*.*</exclude>
+					<exclude>com/github/pradine/hydra/schematron/**</exclude>
 				</excludes>
 			</resource>
 			<resource>
