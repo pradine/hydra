@@ -89,6 +89,9 @@
 						</transformationSet>
 						<transformationSet>
 							<dir>${project.build.directory}/generated-resources/com/github/pradine/hydra/schematron</dir>
+							<includes>
+							  <include>static-analysis.sch</include>
+							</includes>
 							<stylesheet>src/main/resources/com/github/pradine/hydra/schematron/tools/iso_svrl_for_xslt2.xsl</stylesheet>
 							<outputDir>${project.build.directory}/generated-resources/com/github/pradine/hydra/xsl</outputDir>
 							<parameters>
