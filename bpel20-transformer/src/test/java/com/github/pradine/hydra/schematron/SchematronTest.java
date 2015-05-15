@@ -37,12 +37,8 @@ public class SchematronTest {
     }
 
     @Test
-    public void testValidSA00006() throws Exception {
+    public void testSA00006() throws Exception {
         evaluate("sa00006/valid.bpel", "sa00006/validResult.xml");
-    }
-
-    @Test
-    public void testInvalidSA00006() throws Exception {
         evaluate("sa00006/invalid.bpel", "sa00006/invalidResult.xml");
     }
 

@@ -14,15 +14,17 @@
 		 -->
    <svrl:ns-prefix-in-attribute-values uri="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
                                        prefix="bpel"/>
-   <svrl:active-pattern document="sa00006/invalid.bpel" id="all" name="all"/>
+   <svrl:active-pattern document="sa00006/invalid.bpel" id="SA00006" name="SA00006"/>
    <svrl:fired-rule context="bpel:rethrow"/>
    <svrl:failed-assert test="ancestor::bpel:catch|ancestor::bpel:catchAll"
                        location="/*:process[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]/*:faultHandlers[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]/*:rethrow[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][1]">
       <svrl:text>
-			SA00006: The &lt;rethrow&gt; activity MUST
-			only be used within a
+			The &lt;rethrow&gt; activity MUST
+			only be
+			used within a
 			faultHandler (i.e. &lt;catch&gt; and
-			&lt;catchAll&gt; elements).
+			&lt;catchAll&gt;
+			elements).
 		</svrl:text>
    </svrl:failed-assert>
 </svrl:schematron-output>

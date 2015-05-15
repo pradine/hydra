@@ -14,7 +14,7 @@
 		 -->
    <svrl:ns-prefix-in-attribute-values uri="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
                                        prefix="bpel"/>
-   <svrl:active-pattern document="sa00006/valid.bpel" id="all" name="all"/>
+   <svrl:active-pattern document="sa00006/valid.bpel" id="SA00006" name="SA00006"/>
    <svrl:fired-rule context="bpel:rethrow"/>
    <svrl:fired-rule context="bpel:rethrow"/>
 </svrl:schematron-output>
