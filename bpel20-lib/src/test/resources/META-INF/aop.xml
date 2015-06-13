@@ -1,0 +1,15 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <weaver>
+        <!-- only weave classes in this package -->
+        <include within="com.github.pradine.hydra.persistence.*" />
+         <!-- do not weave classes in this package -->
+        <exclude within="com.github.pradine.hydra.persistence.entity.*"/>
+    </weaver>
+    
+    <aspects>
+        <!-- Spring provided AspectJ aspect (in spring-aspects.jar) -->
+        <aspect name="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect" />
+    </aspects>
+</aspectj>

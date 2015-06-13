@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <context:load-time-weaver/>
+  <context:spring-configured/>
+  <context:component-scan base-package="com.github.pradine.hydra.persistence.entity" />
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
+  <bean id="xmlProcessor" class="net.sf.saxon.s9api.Processor">
+    <constructor-arg type="boolean" value="false" />
+  </bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="EntityTest" />
+		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+				<property name="showSql" value="false" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="persistenceUnitManager"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="dataSources">
+			<map>
+				<entry>
+					<key>
+						<value>jdbc/nonjta</value>
+					</key>
+					<ref bean="dataSource" />
+				</entry>
+			</map>
+		</property>
+		<property name="loadTimeWeaver">
+			<ref bean="loadTimeWeaver"/>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.derby.jdbc.EmbeddedDataSource">
+		<property name="user" value="scott" />
+		<property name="password" value="tiger" />
+		<property name="databaseName" value="memory:target/testDB" />
+		<property name="createDatabase" value="create" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+</beans>

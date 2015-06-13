@@ -1,0 +1,40 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="EntityTest" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>jdbc/nonjta</non-jta-data-source>
+		<class>com.github.pradine.hydra.persistence.entity.Correlation1</class>
+		<class>com.github.pradine.hydra.persistence.entity.Correlation2</class>
+		<class>com.github.pradine.hydra.persistence.entity.Correlation3</class>
+		<class>com.github.pradine.hydra.persistence.entity.AbstractCorrelation</class>
+		<class>com.github.pradine.hydra.persistence.entity.ActivityState</class>		
+		<class>com.github.pradine.hydra.persistence.entity.CorrelationSet</class>
+		<class>com.github.pradine.hydra.persistence.entity.Data</class>
+		<class>com.github.pradine.hydra.persistence.entity.FlowContext</class>
+		<class>com.github.pradine.hydra.persistence.entity.InboundDestination</class>
+		<class>com.github.pradine.hydra.persistence.entity.Link</class>
+		<class>com.github.pradine.hydra.persistence.entity.MessageExchange</class>
+		<class>com.github.pradine.hydra.persistence.entity.OpenIMA</class>
+		<class>com.github.pradine.hydra.persistence.entity.OutboundDestination</class>
+		<class>com.github.pradine.hydra.persistence.entity.Owner</class>
+		<class>com.github.pradine.hydra.persistence.entity.PartnerLink</class>
+		<class>com.github.pradine.hydra.persistence.entity.ScopeContext</class>
+		<class>com.github.pradine.hydra.persistence.entity.Timer</class>
+		<class>com.github.pradine.hydra.persistence.entity.Type</class>
+		<class>com.github.pradine.hydra.persistence.entity.Variable</class>
+    <class>com.github.pradine.hydra.persistence.entity.WSDL11ToIMA</class>
+		<class>com.github.pradine.hydra.persistence.ClassToStringConverter</class>
+		<class>com.github.pradine.hydra.persistence.QNameToStringConverter</class>
+		<class>com.github.pradine.hydra.persistence.UUIDToStringConverter</class>
+		<class>com.github.pradine.hydra.persistence.XdmNodeToBytesConverter</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+		  <property name="javax.persistence.schema-generation.database.action" value="create"/>
+		  <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+		</properties>
+	</persistence-unit>
+</persistence>
