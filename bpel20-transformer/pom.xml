@@ -1,33 +1,34 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.github.pradine.hydra</groupId>
-    <artifactId>hydra</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>bpel20-transformer</artifactId>
-  <dependencies>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>net.sf.saxon</groupId>
-  		<artifactId>Saxon-HE</artifactId>
-  	</dependency>
-  	<dependency>
-        <groupId>com.beust</groupId>
-        <artifactId>jcommander</artifactId>
-    </dependency>
-  	<dependency>
-  		<groupId>org.apache.maven</groupId>
-  		<artifactId>maven-embedder</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>xmlunit</groupId>
-  		<artifactId>xmlunit</artifactId>
-  	</dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.pradine.hydra</groupId>
+		<artifactId>hydra</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bpel20-transformer</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>Saxon-HE</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.beust</groupId>
+			<artifactId>jcommander</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-embedder</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>xmlunit</groupId>
+			<artifactId>xmlunit</artifactId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<resources>
@@ -40,7 +41,7 @@
 			<resource>
 				<directory>${project.build.directory}/generated-resources</directory>
 				<includes>
-				  <include>com/github/pradine/hydra/xsl/static-analysis.xsl</include>
+					<include>com/github/pradine/hydra/xsl/static-analysis.xsl</include>
 				</includes>
 			</resource>
 		</resources>
@@ -60,7 +61,7 @@
 						<transformationSet>
 							<dir>src/main/resources/com/github/pradine/hydra/schematron</dir>
 							<includes>
-							  <include>static-analysis.sch</include>
+								<include>static-analysis.sch</include>
 							</includes>
 							<stylesheet>src/main/resources/com/github/pradine/hydra/schematron/tools/iso_dsdl_include.xsl</stylesheet>
 							<outputDir>${project.build.directory}/generated-resources/com/github/pradine/hydra/schematron</outputDir>
@@ -90,7 +91,7 @@
 						<transformationSet>
 							<dir>${project.build.directory}/generated-resources/com/github/pradine/hydra/schematron</dir>
 							<includes>
-							  <include>static-analysis.sch</include>
+								<include>static-analysis.sch</include>
 							</includes>
 							<stylesheet>src/main/resources/com/github/pradine/hydra/schematron/tools/iso_svrl_for_xslt2.xsl</stylesheet>
 							<outputDir>${project.build.directory}/generated-resources/com/github/pradine/hydra/xsl</outputDir>
@@ -116,6 +117,22 @@
 						<version>9.6.0-5</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>*.png</exclude>
+						<exclude>*.txt</exclude>
+						<exclude>*.md</exclude>
+						<exclude>resources/com/github/pradine/hydra/schematron/tools/**</exclude>
+						<exclude>resources/com/github/pradine/hydra/xsd/**</exclude>
+					</excludes>
+					<extraExtensions>
+						<sch>xml</sch>
+					</extraExtensions>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

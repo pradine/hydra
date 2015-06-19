@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.github.pradine.hydra</groupId>
-    <artifactId>hydra</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>bpel20-lib</artifactId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.github.pradine.hydra</groupId>
+		<artifactId>hydra</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bpel20-lib</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -81,7 +82,7 @@
 
 	<build>
 		<plugins>
- 			<plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -98,9 +99,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<reuseForks>false</reuseForks>
-          <argLine>
-            -javaagent:${org.springframework:spring-instrument:jar} -ea
-          </argLine>
+					<argLine>
+						-javaagent:${org.springframework:spring-instrument:jar} -ea
+					</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
