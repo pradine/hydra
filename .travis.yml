@@ -4,3 +4,7 @@ jdk:
   - oraclejdk7
   - openjdk7
   - oraclejdk8
+before_install:
+  - sudo sed -i "s/security.provider.9/#security.provider.9/g" $JAVA_HOME/jre/lib/security/java.security
+after_success:
+  - mvn clean test jacoco:report coveralls:report
