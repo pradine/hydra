@@ -1,7 +1,7 @@
 # Hydra
 
 [![Build Status](https://travis-ci.org/pradine/hydra.svg?branch=master)](https://travis-ci.org/pradine/hydra)
-[![Coverage Status](https://coveralls.io/repos/pradine/hydra/badge.svg)](https://coveralls.io/r/pradine/hydra)
+[![Coverage Status](https://coveralls.io/repos/pradine/hydra/badge.svg?branch=master)](https://coveralls.io/r/pradine/hydra?branch=master)
 
 The aim of this project is to take a WS-BPEL 2.0 process description, along with any required WSDLs and XSDs, and convert it into a bespoke process engine application, that implements support only for that single process. From this description it should be clear that Hydra is not a generic process engine that stores and manages many different BPEL processes, like many other process engines available today. Instead, it is a combination of a transformer application, and a library, that together allow you to take a process description and transform it into an application that you can manage and deploy, just like any other application you may have. With this applications you can, for example, deploy and run it on your favourite application server, or even deploy it to the cloud.
 
