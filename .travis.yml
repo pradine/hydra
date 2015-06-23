@@ -1,10 +1,12 @@
----
 language: java
 jdk:
-  - oraclejdk7
-  - openjdk7
-  - oraclejdk8
+- oraclejdk7
+- openjdk7
+- oraclejdk8
 before_install:
-  - sudo sed -i "s/security.provider.9/#security.provider.9/g" $JAVA_HOME/jre/lib/security/java.security
+- sudo sed -i "s/security.provider.9/#security.provider.9/g" $JAVA_HOME/jre/lib/security/java.security
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+- mvn clean test jacoco:report coveralls:report
+env:
+  global:
+    secure: J87CYQVn0u6aXQqkk9PoGpxna+JmyketSRcP63vAIXFs1sKiIgWJWrGx5wVXJf6YUbvtxPj52F5FIWItxcHS9LmvK6VCHFQZnzDbHHR2gKfVnaV/7CEAg2uYQ7/mGnVch7MeKcBqbEofHM7Xphzg+RgqDDpN1Oenyab4wr21wvw=
