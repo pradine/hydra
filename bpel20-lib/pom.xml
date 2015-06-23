@@ -80,6 +80,12 @@
 		</dependency>
 	</dependencies>
 
+	<properties>
+		<argLine>
+			-javaagent:${org.springframework:spring-instrument:jar} -ea
+		</argLine>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -99,9 +105,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<reuseForks>false</reuseForks>
-					<argLine>
-						-javaagent:${org.springframework:spring-instrument:jar} -ea
-					</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
